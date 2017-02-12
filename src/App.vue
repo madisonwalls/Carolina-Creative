@@ -1,23 +1,50 @@
+
 <template>
+
+
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <!-- Form Component goes here -->
+    <Favorites></Favorites>
+
   </div>
 </template>
 
 <script>
+import Favorites from './components/Favorites'
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+    }
+  },
+  mounted () {
+    console.log('App -> mounted.')
+  },
+  beforeDestroy () {
+    console.log('App -> beforeDestroy.')
+  },
+  components: {
+    Favorites
+  },
+  methods: {
+
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+@font-face {
+font-family: carolinaCreative;
+src: url(../fonts/white_festive_demo.otf);
 }
+
+.title h1 {
+font-family: carolinaCreative;
+font-size: 70px;
+padding: 30px;
+color: #7F1637;
+text-decoration: underline;
+}
+
 </style>
