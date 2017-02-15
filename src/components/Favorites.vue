@@ -1,9 +1,11 @@
 <template>
+
   <div class="Favorites">
     <h1>Favorites</h1>
       <p>Welcome to Carolina Creative! The University of North Carolina at Chapel Hill offers many ways for students to explore and improve their creative skills. From beginning drawing classes to hip hop dance clubs, UNC has it all.</p>
       <p>Use the section below to look at some of the opportunities. If you like one, check the "favorite" option, and it will appear right here in this box!</p>
     </div>
+
 </template>
 
 <script>
@@ -34,9 +36,14 @@ export default {
 
 border: 10px solid #7F1637;
 display: inline-block;
-width: 50%;
+width: 360px;
+margin-top: 10px;
+margin-bottom: 40px;
+
+
 
 }
+
 
 h1 {
   font-family: carolinaCreative;
@@ -50,7 +57,7 @@ h1 {
 
 p {
   font-family: avenir;
-  font-size: 20px;
+  font-size: 14px;
   text-align: left;
   color: #7F1637;
   padding: 25px;
