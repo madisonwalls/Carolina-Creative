@@ -8,7 +8,7 @@
     <Favorites :favorites="favorites"></Favorites>
     <Filters></Filters>
     <Art v-show="newTab === 'Art'" @addFavorite="onAddFavorite"  @removeFavorite="onRemoveFavorite"></Art>
-    <Music v-show="newTab === 'Music'" @addFavorite="onAddFavorite @removeFavorite="onRemoveFavorite""></Music>
+    <Music v-show="newTab === 'Music'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Music>
     <Writing v-show="newTab === 'Writing'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Writing>
 
 
