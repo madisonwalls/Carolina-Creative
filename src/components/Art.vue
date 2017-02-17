@@ -1,18 +1,27 @@
 <template>
 <div class="Art">
-  <div v-for="artCard in artCards" class="ArtBox">
+  <div v-for="artCard in artCards" :class="{ 'artCard': true, 'active': activeButton === artCard }"  @click="clickCategory(artCard)">
     <p>{{ artCard.artTitle }}</p>
     <img v-bind:src="artCard.image">
   </div>
+  <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Card>
+
 
 </div>
 </template>
 
 <script>
+import axios from 'axios'
+import Card from './Card'
 export default {
   mounted () {
     console.log('Art -> mounted.')
     console.log(this.artCards)
+    axios.get('/static/courses.json')
+      .then((response) => {
+        console.log(response.data)
+        this.cards = response.data
+      })
   },
   beforeDestroy () {
     console.log('Art -> beforeDestroy.')
@@ -22,6 +31,7 @@ export default {
   ],
   data () {
     return {
+      activeButton: null,
       artCards:
       [
         {
@@ -48,10 +58,27 @@ export default {
           artTitle: 'Mixed Media',
           image: '/static/img/mixedmedia.jpg'
         }
-      ]
+      ],
+      cards: []
     }
   },
   methods: {
+    clickCategory (artCard) {
+      this.activeButton = artCard
+      this.$evt.$emit('clickCategory', {
+        categoryTitle: this.activeButton.artTitle
+      })
+    },
+    onAddFavorite (data) {
+      console.log(data)
+      this.$emit('addFavorite', data)
+    },
+    onRemoveFavorite () {
+      this.$emit('removeFavorite')
+    }
+  },
+  components: {
+    Card
   }
 }
 </script>
@@ -64,7 +91,7 @@ export default {
   width: 1000px;
 }
 
-.ArtBox {
+.artCard {
 
   border: 5px solid #7F1637;
   display: inline-block;
@@ -77,15 +104,19 @@ export default {
 
 }
 
-.ArtBox:hover {
+.artCard:hover  {
 
 background-color: #7F1637;
 cursor: pointer;
-color: white;
+
 
 }
 
-.ArtBox img {
+.active {
+  background-color: #7F1637;
+}
+
+.artCard img {
   width: 250px;
   height: 250px;
   position: relative;
@@ -113,6 +144,13 @@ p {
   z-index: 5;
   padding-left: 60px;
   text-align: center;
+}
+
+.boxing {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin: 10px;
 }
 
 

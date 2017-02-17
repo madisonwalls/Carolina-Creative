@@ -3,7 +3,6 @@
 
     <div v-for="button in buttons" :class="{ 'button': true, 'active': activeButton === button }" @click="clickButton(button)">{{ button.titleContent }}</div>
 
-
   </div>
 </template>
 
@@ -12,12 +11,12 @@ export default {
   mounted () {
     console.log('Filters -> mounted.')
     console.log('buttons', this.buttons)
+    console.log(this.filtername)
   },
   beforeDestroy () {
     console.log('Filters -> beforeDestroy.')
   },
   props: [
-
   ],
   data () {
     return {
@@ -48,6 +47,10 @@ export default {
   methods: {
     clickButton (button) {
       this.activeButton = button
+      console.log(this.activeButton.titleContent)
+      this.$evt.$emit('clickButton', {
+        newTab: this.activeButton.titleContent
+      })
     }
   }
 }
@@ -66,6 +69,7 @@ text-align: left;
 color: #7F1637;
 padding: 10px 40px;
 cursor: pointer;
+margin-bottom: 40px;
 
 
 }
@@ -83,9 +87,9 @@ padding: 10px 40px;
 
 .Filters {
 
-display: inline-block;
-margin-bottom: 25px;
-margin-left: 80px;
+display: block;
+margin: auto;
+width: 950px;
 
 }
 

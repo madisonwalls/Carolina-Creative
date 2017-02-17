@@ -1,7 +1,9 @@
 <template>
+<div class="videoBox">
     <div class="VideoPlayer">
     <iframe src="https://player.vimeo.com/video/203925933" width="660" height="380" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
+</div>
 </template>
 
 <script>
@@ -36,8 +38,14 @@ width: 660px;
 height: 380px;
 margin: 10px;
 float: left;
-margin-left: 80px;
 
+
+}
+
+.videoBox {
+  margin: auto;
+  display: block;
+  width: 1200px;
 }
 
 h1 {

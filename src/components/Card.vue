@@ -1,6 +1,8 @@
 <template>
-  <div class="Card">
-  <h1>{{ card.Filter }}</h1>
+  <div v-show="card.Filter === title" class="Card">
+  <h1>{{ card.Name }}</h1>
+  <input type="checkbox" v-model="favoriteSelected" @change="updateValue">
+  <p>{{ card.Description }}</p>
   </div>
 </template>
 
@@ -8,6 +10,7 @@
 export default {
   mounted () {
     console.log('Card -> mounted.')
+    this.$evt.$on('clickCategory', this.showCard)
   },
   beforeDestroy () {
     console.log('Card -> beforeDestroy.')
@@ -17,10 +20,24 @@ export default {
   ],
   data () {
     return {
+      title: '',
+      favoriteSelected: false
     }
   },
   methods: {
-
+    showCard (data) {
+      console.log(data.categoryTitle)
+      this.title = data.categoryTitle
+    },
+    updateValue () {
+      console.log(this.favoriteSelected)
+      if (this.favoriteSelected) {
+        this.$emit('addFavorite', {
+          name: this.card.Name })
+      } else {
+        this.$emit('removeFavorite')
+      }
+    }
   }
 }
 </script>
@@ -29,22 +46,29 @@ export default {
 
 .Card {
 
-border: 10px solid #7F1637;
+margin: auto;
+width: 840px;
 display: block;
 
 
+}
 
+input {
+  float: right;
+  display: block;
+  border: solid, #7F1637;
 
 }
 
 h1 {
   font-family: carolinaCreative;
-  font-size: 45px;
-  text-align: center;
+  font-size: 25px;
+  text-align: left;
   text-decoration: underline;
   color: #7F1637;
   padding: 15px;
   padding-bottom: 0px;
+  margin: 0px;
 }
 
 p {
@@ -52,8 +76,9 @@ p {
   font-size: 14px;
   text-align: left;
   color: #7F1637;
-  padding: 25px;
+  padding: 15px;
   padding-top: 0px;
+  margin: 0px;
 }
 
 </style>

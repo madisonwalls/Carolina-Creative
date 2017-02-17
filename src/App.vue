@@ -5,10 +5,10 @@
   <div id="app">
     <!-- Form Component goes here -->
     <VideoPlayer></VideoPlayer>
-    <Favorites></Favorites>
+    <Favorites :favorites="favorites"></Favorites>
     <Filters></Filters>
-    <Art></Art>
-    <Card v-for="card in cards" :card="card"></Card>
+    <Art v-show="newTab === 'Art'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorites"></Art>
+
 
   </div>
 </template>
@@ -24,11 +24,13 @@ export default {
   name: 'app',
   data () {
     return {
-      cards: []
+      newTab: '',
+      favorites: []
     }
   },
   mounted () {
     console.log('App -> mounted.')
+    this.$evt.$on('clickButton', this.changeFilter)
     axios.get('/static/courses.json')
       .then((response) => {
         console.log(response.data)
@@ -46,7 +48,15 @@ export default {
     Art
   },
   methods: {
-
+    changeFilter (data) {
+      console.log('App -> changeFilter', data)
+      this.newTab = data.newTab
+      console.log(this.newTab)
+    },
+    onAddFavorite (data) {
+      this.favorites.push(data)
+      console.log(data.name)
+    }
   }
 }
 </script>
