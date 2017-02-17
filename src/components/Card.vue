@@ -33,9 +33,10 @@ export default {
       console.log(this.favoriteSelected)
       if (this.favoriteSelected) {
         this.$emit('addFavorite', {
-          name: this.card.Name })
+          name: this.card.Name
+        })
       } else {
-        this.$emit('removeFavorite')
+        this.$emit('removeFavorite', this.card.Name)
       }
     }
   }

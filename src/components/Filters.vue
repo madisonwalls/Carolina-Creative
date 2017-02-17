@@ -70,9 +70,13 @@ color: #7F1637;
 padding: 10px 40px;
 cursor: pointer;
 margin-bottom: 40px;
-
-
 }
+
+.button:hover {
+  background-color: rgba(127,22,55,0.5);
+  cursor: pointer;
+}
+
 .active {
 background-color: #7F1637;
 color: white;

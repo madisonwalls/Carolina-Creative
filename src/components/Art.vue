@@ -70,10 +70,10 @@ export default {
       })
     },
     onAddFavorite (data) {
-      console.log(data)
       this.$emit('addFavorite', data)
     },
     onRemoveFavorite () {
+      console.log('hey')
       this.$emit('removeFavorite')
     }
   },
@@ -108,12 +108,14 @@ export default {
 
 background-color: #7F1637;
 cursor: pointer;
-
-
 }
 
 .active {
   background-color: #7F1637;
+}
+
+.active p {
+  color: white;
 }
 
 .artCard img {
