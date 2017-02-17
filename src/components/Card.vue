@@ -1,7 +1,8 @@
 <template>
   <div v-show="card.Filter === title" class="Card">
   <h1>{{ card.Name }}</h1>
-  <input type="checkbox" v-model="favoriteSelected" @change="updateValue">
+  <div v-show="!favoriteSelected" class="button" @click="updateValue()"><p>Favorite</p></div>
+  <div v-show="favoriteSelected" class="buttonActive"><p>Added!</p></div>
   <p>{{ card.Description }}</p>
   </div>
 </template>
@@ -30,15 +31,14 @@ export default {
       this.title = data.categoryTitle
     },
     updateValue () {
-      console.log(this.favoriteSelected)
+      this.favoriteSelected = true
       if (this.favoriteSelected) {
         this.$emit('addFavorite', {
           name: this.card.Name
         })
-      } else {
-        this.$emit('removeFavorite')
       }
     }
+
   }
 }
 </script>
@@ -54,11 +54,47 @@ display: block;
 
 }
 
-input {
+.button {
+  border: 3px solid #7F1637;
+  border-radius: 10px;
+  display: inline-block;
   float: right;
-  display: block;
-  border: solid, #7F1637;
+  margin: 10px 8px;
+}
 
+.buttonActive {
+  border: 3px solid #0E8C00;
+  border-radius: 10px;
+  display: inline-block;
+  float: right;
+  margin: 10px 8px;
+}
+
+.button:hover {
+  background-color: rgba(127,22,55,0.5);
+  cursor: pointer;
+}
+
+.button p {
+  font-family: avenir;
+  font-size: 10px;
+  text-align: left;
+  color: #7F1637;
+  padding: 2px 8px;
+  display: inline-block;
+  float: right;
+  margin: 0px;
+}
+
+.buttonActive p {
+  font-family: avenir;
+  font-size: 10px;
+  text-align: left;
+  color: #0E8C00;
+  padding: 2px 8px;
+  display: inline-block;
+  float: right;
+  margin: 0px;
 }
 
 h1 {

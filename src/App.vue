@@ -13,6 +13,7 @@
     <Theatre v-show="newTab === 'Theatre'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Theatre>
     <Clubs v-show="newTab === 'Clubs'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Clubs>
     <All v-show="newTab === 'All'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></All>
+    <Footer></Footer>
 
 
   </div>
@@ -30,6 +31,7 @@ import Writing from './components/Writing'
 import Theatre from './components/Theatre'
 import Clubs from './components/Clubs'
 import All from './components/All'
+import Footer from './components/Footer'
 export default {
   name: 'app',
   data () {
@@ -63,7 +65,8 @@ export default {
     Writing,
     Theatre,
     Clubs,
-    All
+    All,
+    Footer
   },
   methods: {
     changeFilter (data) {

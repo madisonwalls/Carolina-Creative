@@ -23,7 +23,7 @@ export default {
       activeButton: null,
       buttons: [
         {
-          titleContent: 'Art'
+          titleContent: 'All'
         },
         {
           titleContent: 'Music'
@@ -38,7 +38,7 @@ export default {
           titleContent: 'Clubs'
         },
         {
-          titleContent: 'All'
+          titleContent: 'Art'
         }
 
       ]

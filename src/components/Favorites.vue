@@ -15,7 +15,6 @@
 <script>
 export default {
   mounted () {
-    this.$evt.$on('goRemove', this.finalRemove)
     console.log('Favorites -> mounted.')
   },
   beforeDestroy () {
