@@ -36,7 +36,7 @@ export default {
           name: this.card.Name
         })
       } else {
-        this.$emit('removeFavorite', this.card.Name)
+        this.$emit('removeFavorite')
       }
     }
   }

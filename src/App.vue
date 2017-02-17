@@ -7,8 +7,8 @@
     <VideoPlayer></VideoPlayer>
     <Favorites :favorites="favorites"></Favorites>
     <Filters></Filters>
-    <Art v-show="newTab === 'Art'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Art>
-    <Music v-show="newTab === 'Music'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Music>
+    <Art v-show="newTab === 'Art'" @addFavorite="onAddFavorite"  @removeFavorite="onRemoveFavorite"></Art>
+    <Music v-show="newTab === 'Music'" @addFavorite="onAddFavorite @removeFavorite="onRemoveFavorite""></Music>
     <Writing v-show="newTab === 'Writing'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Writing>
 
 
@@ -28,6 +28,8 @@ export default {
   name: 'app',
   data () {
     return {
+      name: '',
+      favoriteid: '',
       newTab: '',
       favorites: []
     }
@@ -35,7 +37,7 @@ export default {
   mounted () {
     console.log('App -> mounted.')
     this.$evt.$on('clickButton', this.changeFilter)
-    this.$evt.$on('updateValue', this.onRemoveFavorite)
+    this.$evt.$on('removeFavorite', this.onRemoveFavorite)
     axios.get('/static/courses.json')
       .then((response) => {
         console.log(response.data)
@@ -61,12 +63,17 @@ export default {
       console.log(this.newTab)
     },
     onAddFavorite (data) {
-      this.favorites.push(data)
+      this.name = data.name
+      console.log(this.name)
+      this.favoriteid++
+      this.favorites.push({
+        name: this.name,
+        id: this.favoriteid
+      })
       console.log('favorites', this.favorites)
     },
-    onRemoveFavorite (data) {
-      this.favorites.splice(this.favorites.indexOf(data), 1)
-      console.log(data)
+    onRemoveFavorite (i) {
+      this.favorites.splice(i, 1)
     }
   }
 }

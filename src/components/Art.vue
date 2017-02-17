@@ -72,9 +72,8 @@ export default {
     onAddFavorite (data) {
       this.$emit('addFavorite', data)
     },
-    onRemoveFavorite () {
-      console.log('hey')
-      this.$emit('removeFavorite')
+    onRemoveFavorite (data) {
+      this.$emit('removeFavorite', data)
     }
   },
   components: {
