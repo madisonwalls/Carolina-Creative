@@ -223,7 +223,7 @@
   },
   {
     "Category": "Clubs",
-    "Filter": "Poetry",
+    "Filter": "Club Poetry",
     "Name": "UNC-CH Wordsmiths",
     "Description": "The purpose of Wordsmiths is to encourage the expression of creativity on campus through poetry, and the dynamic setting offered by an open mic/poetry slam."
   },
@@ -889,7 +889,7 @@
   },
   {
     "Category": "Dramatic Arts",
-    "Filter": "Play",
+    "Filter": "Play Writing",
     "Name": "DRAM 120 : Play Analysis",
     "Description": "Development of the skill to analyze plays for academic and production purposes through the intensive study of representative plays. DRAM 120 is the first course in the major and the minor in dramatic art."
   },

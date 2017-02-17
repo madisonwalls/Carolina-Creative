@@ -57,6 +57,10 @@ export default {
         {
           artTitle: 'Mixed Media',
           image: '/static/img/mixedmedia.jpg'
+        },
+        {
+          artTitle: 'Printmaking',
+          image: '/static/img/printmaking.JPG'
         }
       ],
       cards: []

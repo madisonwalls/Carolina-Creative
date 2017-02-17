@@ -10,6 +10,9 @@
     <Art v-show="newTab === 'Art'" @addFavorite="onAddFavorite"  @removeFavorite="onRemoveFavorite"></Art>
     <Music v-show="newTab === 'Music'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Music>
     <Writing v-show="newTab === 'Writing'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Writing>
+    <Theatre v-show="newTab === 'Theatre'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Theatre>
+    <Clubs v-show="newTab === 'Clubs'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Clubs>
+    <All v-show="newTab === 'All'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></All>
 
 
   </div>
@@ -24,6 +27,9 @@ import Filters from './components/Filters'
 import Art from './components/Art'
 import Music from './components/Music'
 import Writing from './components/Writing'
+import Theatre from './components/Theatre'
+import Clubs from './components/Clubs'
+import All from './components/All'
 export default {
   name: 'app',
   data () {
@@ -54,7 +60,10 @@ export default {
     Filters,
     Art,
     Music,
-    Writing
+    Writing,
+    Theatre,
+    Clubs,
+    All
   },
   methods: {
     changeFilter (data) {
