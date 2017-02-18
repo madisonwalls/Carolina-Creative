@@ -1,12 +1,16 @@
 <template>
 <div class="Art">
-  <div v-for="artCard in artCards" :class="{ 'artCard': true, 'active': activeButton === artCard }"  @click="clickCategory(artCard)">
-    <p>{{ artCard.artTitle }}</p>
-    <img v-bind:src="artCard.image">
+  <div class="cardPosition">
+    <div v-for="artCard in artCards" :class="{ 'artCard': true, 'active': activeButton === artCard }"  @click="clickCategory(artCard)">
+      <p>{{ artCard.artTitle }}</p>
+      <img v-bind:src="artCard.image">
+    </div>
+  </div>
+  <div class="opitons" v-show="activeButton === null">
+    <img src="/static/img/ccimage.png">
+      <h1>Pick a Sub Category to View Options</h1>
   </div>
   <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Card>
-
-
 </div>
 </template>
 
@@ -91,8 +95,10 @@ export default {
 .Art {
   margin: auto;
   display: block;
-  width: 1000px;
+  width: 1200px;
+
 }
+
 
 .artCard {
 
@@ -134,21 +140,23 @@ h1 {
   font-family: carolinaCreative;
   font-size: 45px;
   text-align: center;
-  text-decoration: underline;
   color: #7F1637;
   padding: 15px;
   padding-bottom: 0px;
+  position: relative;
 }
 
 p {
   font-family: avenir;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 28px;
   color: #7F1637;
-  padding-top: 80px;
-  position: absolute;
+  padding-top: 100px;
   z-index: 5;
-  padding-left: 60px;
+  margin: auto 50px;
+  display: block;
   text-align: center;
+  position: absolute;
 }
 
 .boxing {
@@ -158,6 +166,67 @@ p {
   margin: 10px;
 }
 
+img {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
+  opacity: 0.3;
+  position: relative;
+  float: right;
+}
+
+@media screen and (max-width: 460px) {
+
+
+    .Art {
+      margin: auto;
+      display: block;
+      width: 350px;
+    }
+
+    .artCard {
+
+      border: 3px solid #7F1637;
+      display: inline-block;
+      margin: 5px;
+      font-family: avenir;
+      font-size: 28px;
+      text-align: center;
+      width: 150px;
+      height: 150px;
+
+    }
+
+    .artCard img {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      opacity: .4;
+    }
+
+    p {
+      font-family: avenir;
+      font-weight: bold;
+      font-size: 20px;
+      color: #7F1637;
+      padding-top: 50px;
+      z-index: 5;
+      margin: auto 25px;
+      display: block;
+      text-align: center;
+      position: absolute;
+    }
+
+    img {
+      opacity: 0;
+    }
+
+    h1 {
+      display: none;
+    }
+
+  }
 
 
 </style>

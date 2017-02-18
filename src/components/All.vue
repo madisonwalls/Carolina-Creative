@@ -1,11 +1,16 @@
 <template>
 <div class="All">
+  <div class="cardPosition">
   <div v-for="allCard in allCards" :class="{ 'allCard': true, 'active': activeButton === allCard }"  @click="clickCategory(allCard)">
     <p>{{ allCard.allTitle }}</p>
     <img v-bind:src="allCard.image">
   </div>
+</div>
   <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Card>
-
+  <div  v-show="activeButton === null">
+    <img src="/static/img/ccimage.png">
+      <h1>Pick a Sub Category to View Options</h1>
+  </div>
 
 </div>
 </template>
@@ -164,7 +169,7 @@ export default {
 .All {
   margin: auto;
   display: block;
-  width: 1000px;
+  width: 1200px;
 }
 
 .allCard {
@@ -207,20 +212,23 @@ h1 {
   font-family: carolinaCreative;
   font-size: 45px;
   text-align: center;
-  text-decoration: underline;
   color: #7F1637;
   padding: 15px;
   padding-bottom: 0px;
+  position: relative;
 }
 
 p {
   font-family: avenir;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 28px;
   color: #7F1637;
-  padding-top: 80px;
-  position: absolute;
+  padding-top: 100px;
   z-index: 5;
-  padding-left: 60px;
+  margin: auto 50px;
+  display: block;
+  text-align: center;
+  position: absolute;
   text-align: center;
   width: 100px;
 }
@@ -231,6 +239,71 @@ p {
   border: 1px solid #ccc;
   margin: 10px;
 }
+
+img {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
+  opacity: 0.3;
+  position: relative;
+  float: right;
+
+}
+
+@media screen and (max-width: 460px) {
+
+
+    .All {
+      margin: auto;
+      display: block;
+      width: 350px;
+    }
+
+    .allCard {
+
+      border: 3px solid #7F1637;
+      display: inline-block;
+      margin: 5px;
+      font-family: avenir;
+      font-size: 28px;
+      text-align: center;
+      width: 150px;
+      height: 150px;
+
+    }
+
+    .allCard img {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      opacity: .4;
+    }
+
+    p {
+      font-family: avenir;
+      font-weight: bold;
+      font-size: 20px;
+      color: #7F1637;
+      padding-top: 50px;
+      z-index: 5;
+      margin: auto 0px;
+      display: block;
+      text-align: center;
+      position: absolute;
+      padding-left: 0px;
+    }
+    img {
+      opacity: 0;
+    }
+
+    h1 {
+      display: none;
+    }
+
+
+  }
+
 
 
 

@@ -1,7 +1,7 @@
 <template>
 <div class="videoBox">
     <div class="VideoPlayer">
-    <iframe src="https://player.vimeo.com/video/203925933" width="660" height="380" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <iframe src="https://player.vimeo.com/video/203925933" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 </div>
 </template>
@@ -34,12 +34,17 @@ export default {
 
 border: 10px solid #7F1637;
 display: inline-block;
-width: 660px;
-height: 380px;
+width: 730px;
+height: 420px;
 margin: 10px;
 float: left;
 
 
+}
+
+iframe {
+  width: 730px;
+  height: 420px;
 }
 
 .videoBox {
@@ -70,6 +75,19 @@ p {
 .player .video-wrapper video {
     width: 100%;
     height: auto;
+}
+
+@media screen and (max-width: 460px) {
+    .VideoPlayer {
+      width: 330px;
+      height: 200px;
+      border: 5px solid #7F1637;
+
+    }
+    iframe {
+      width: 330px;
+      height: 200px;
+    }
 }
 
 </style>

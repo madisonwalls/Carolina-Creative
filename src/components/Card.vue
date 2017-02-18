@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     showCard (data) {
-      console.log(data.categoryTitle)
       this.title = data.categoryTitle
     },
     updateValue () {
@@ -46,11 +45,10 @@ export default {
 <style scoped>
 
 .Card {
-
 margin: auto;
-width: 840px;
-display: block;
-
+width: 45%;
+display: inline-block;
+float: right;
 
 }
 
@@ -117,5 +115,17 @@ p {
   padding-top: 0px;
   margin: 0px;
 }
+
+@media screen and (max-width: 460px) {
+    .Card {
+    margin: auto;
+    width: auto;
+    display: block;
+
+    }
+
+
+  }
+
 
 </style>
