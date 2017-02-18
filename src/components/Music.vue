@@ -1,3 +1,4 @@
+<!--Shows Music Sub Category Cards -->
 <template>
 <div class="Music">
     <div class="cardPosition">
@@ -6,7 +7,7 @@
     <img v-bind:src="musicCard.image">
   </div>
 </div>
-  <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Card>
+  <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite"></Card>
   <div  v-show="activeButton === null">
     <img src="/static/img/ccimage.png">
       <h1>Pick a Sub Category to View Options</h1>
@@ -68,18 +69,16 @@ export default {
     }
   },
   methods: {
+      // <!-- Tells the Filter Component which category to show -->
     clickCategory (musicCard) {
       this.activeButton = musicCard
       this.$evt.$emit('clickCategory', {
         categoryTitle: this.activeButton.musicTitle
       })
     },
+    // <!-- Puts the card in the Favorites Box-->
     onAddFavorite (data) {
       this.$emit('addFavorite', data)
-    },
-    onRemoveFavorite () {
-      console.log('hey')
-      this.$emit('removeFavorite')
     }
   },
   components: {

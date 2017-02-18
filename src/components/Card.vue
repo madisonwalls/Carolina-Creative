@@ -1,3 +1,4 @@
+<!-- Displays or hides the classes/clubs that are being selected in the category components -->
 <template>
   <div v-show="card.Filter === title" class="Card">
   <h1>{{ card.Name }}</h1>
@@ -26,9 +27,11 @@ export default {
     }
   },
   methods: {
+    // <!-- Gets the name of the category associated with cards -->
     showCard (data) {
       this.title = data.categoryTitle
     },
+    // <!-- A button to add the card to your favorites -->
     updateValue () {
       this.favoriteSelected = true
       if (this.favoriteSelected) {

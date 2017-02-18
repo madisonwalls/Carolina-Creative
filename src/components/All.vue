@@ -1,17 +1,17 @@
+<!--Shows all Sub Category Cards -->
 <template>
 <div class="All">
   <div class="cardPosition">
-  <div v-for="allCard in allCards" :class="{ 'allCard': true, 'active': activeButton === allCard }"  @click="clickCategory(allCard)">
-    <p>{{ allCard.allTitle }}</p>
-    <img v-bind:src="allCard.image">
+    <div v-for="allCard in allCards" :class="{ 'allCard': true, 'active': activeButton === allCard }"  @click="clickCategory(allCard)">
+      <p>{{ allCard.allTitle }}</p>
+      <img v-bind:src="allCard.image">
+    </div>
   </div>
-</div>
   <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Card>
   <div  v-show="activeButton === null">
     <img src="/static/img/ccimage.png">
-      <h1>Pick a Sub Category to View Options</h1>
+    <h1>Pick a Sub Category to View Options</h1>
   </div>
-
 </div>
 </template>
 
@@ -32,7 +32,6 @@ export default {
     console.log('All -> beforeDestroy.')
   },
   props: [
-
   ],
   data () {
     return {
@@ -145,16 +144,18 @@ export default {
   },
   methods: {
     clickCategory (allCard) {
+      // <!-- Tells the Filter Component which category to show -->
       this.activeButton = allCard
       this.$evt.$emit('clickCategory', {
         categoryTitle: this.activeButton.allTitle
       })
     },
+    // <!-- Puts the card in the Favorites Box-->
     onAddFavorite (data) {
       this.$emit('addFavorite', data)
     },
+    // <!-- Removes Favorite -->
     onRemoveFavorite () {
-      console.log('hey')
       this.$emit('removeFavorite')
     }
   },

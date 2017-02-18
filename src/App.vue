@@ -1,21 +1,29 @@
-
+<!-- App that writes all the components out -->
 <template>
-
-
   <div id="app">
-    <!-- Form Component goes here -->
+    <!--Components-->
     <VideoPlayer></VideoPlayer>
     <Favorites :favorites="favorites"></Favorites>
     <Filters></Filters>
-    <Art v-show="newTab === 'Art'" @addFavorite="onAddFavorite"  @removeFavorite="onRemoveFavorite"></Art>
-    <Music v-show="newTab === 'Music'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Music>
-    <Writing v-show="newTab === 'Writing'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Writing>
-    <Theatre v-show="newTab === 'Theatre'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Theatre>
-    <Clubs v-show="newTab === 'Clubs'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Clubs>
-    <All v-show="newTab === 'All'" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></All>
-    <!-- <bottomFooter></bottomFooter> -->
-
-
+    <transition name="fade">
+    <Art v-show="newTab === 'Art'" @addFavorite="onAddFavorite"></Art>
+    </transition>
+    <transition name="fade">
+    <Music v-show="newTab === 'Music'" @addFavorite="onAddFavorite"></Music>
+    </transition>
+    <transition name="fade">
+    <Writing v-show="newTab === 'Writing'" @addFavorite="onAddFavorite"></Writing>
+    </transition>
+    <transition name="fade">
+    <Theatre v-show="newTab === 'Theatre'" @addFavorite="onAddFavorite"></Theatre>
+    </transition>
+    <transition name="fade">
+    <Clubs v-show="newTab === 'Clubs'" @addFavorite="onAddFavorite"></Clubs>
+    </transition>
+    <transition name="fade">
+    <All v-show="newTab === 'All'" @addFavorite="onAddFavorite"></All>
+    </transition>
+    <bottomFooter></bottomFooter>
   </div>
 </template>
 
@@ -69,11 +77,13 @@ export default {
     bottomFooter
   },
   methods: {
+    // <!-- Takes information from filter component and updates the category component shown -->
     changeFilter (data) {
       console.log('App -> changeFilter', data)
       this.newTab = data.newTab
       console.log(this.newTab)
     },
+    // <!-- Adds Favorite from card component-->
     onAddFavorite (data) {
       this.name = data.name
       console.log(this.name)
@@ -83,9 +93,6 @@ export default {
         id: this.favoriteid
       })
       console.log('favorites', this.favorites)
-    },
-    onRemoveFavorite (i) {
-      this.favorites.splice(i, 1)
     }
   }
 }
@@ -120,7 +127,7 @@ display: inline-block;
   display: inline-block;
   float: left;
   width: 50%;
-  height: 1800px;
+  height: 3000px;
 }
 
 .boxing {
@@ -137,6 +144,16 @@ display: inline-block;
   color: #7F1637;
   margin-top: 0px;
   padding-left: 30px;
+}
+
+
+
+.fade-enter-active {
+  transition: opacity 1s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
 

@@ -1,3 +1,4 @@
+<!--Shows Art Sub Category Cards -->
 <template>
 <div class="Art">
   <div class="cardPosition">
@@ -10,7 +11,7 @@
     <img src="/static/img/ccimage.png">
       <h1>Pick a Sub Category to View Options</h1>
   </div>
-  <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite" @removeFavorite="onRemoveFavorite"></Card>
+  <Card v-for="card in cards" :card="card" class="boxing" @addFavorite="onAddFavorite"></Card>
 </div>
 </template>
 
@@ -71,17 +72,16 @@ export default {
     }
   },
   methods: {
+    // <!-- Tells the Filter Component which category to show -->
     clickCategory (artCard) {
       this.activeButton = artCard
       this.$evt.$emit('clickCategory', {
         categoryTitle: this.activeButton.artTitle
       })
     },
+    // <!-- Puts the card in the Favorites Box-->
     onAddFavorite (data) {
       this.$emit('addFavorite', data)
-    },
-    onRemoveFavorite (data) {
-      this.$emit('removeFavorite', data)
     }
   },
   components: {

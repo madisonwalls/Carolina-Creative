@@ -1,3 +1,4 @@
+<!-- Displays the video at the top of the page -->
 <template>
 <div class="videoBox">
     <div class="VideoPlayer">

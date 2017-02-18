@@ -1,3 +1,4 @@
+<!-- A navigation that tabs through the desired category -->
 <template>
   <div>
   <div class="Filters">
@@ -50,6 +51,7 @@ export default {
     }
   },
   methods: {
+    // <!-- Sends information to parent component about the 'active' button -->
     clickButton (button) {
       this.activeButton = button
       console.log(this.activeButton.titleContent)

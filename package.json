@@ -1,7 +1,7 @@
 {
   "name": "carolinacreative",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Carolina Creative is a site that allows students to explore all the artisitc classes and clubs that UNC Chapel Hill has to offer.",
   "author": "madisonwalls <madilyn@live.unc.edu>",
   "private": true,
   "scripts": {
