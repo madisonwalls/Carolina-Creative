@@ -29,6 +29,7 @@ export default {
   methods: {
     // <!-- Gets the name of the category associated with cards -->
     showCard (data) {
+      console.log(data)
       this.title = data.categoryTitle
     },
     // <!-- A button to add the card to your favorites -->

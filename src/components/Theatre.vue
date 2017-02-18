@@ -112,6 +112,7 @@ cursor: pointer;
 
 .active p {
   color: white;
+  z-index: 0;
 }
 
 .theatreCard img {

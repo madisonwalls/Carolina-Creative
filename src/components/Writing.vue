@@ -33,7 +33,6 @@ export default {
     console.log('Writing -> beforeDestroy.')
   },
   props: [
-
   ],
   data () {
     return {
@@ -108,6 +107,7 @@ cursor: pointer;
 
 .active p {
   color: white;
+  z-index: 0;
 }
 
 .writingCard img {

@@ -32,7 +32,6 @@ export default {
     console.log('Art -> beforeDestroy.')
   },
   props: [
-
   ],
   data () {
     return {
@@ -125,6 +124,7 @@ cursor: pointer;
 
 .active p {
   color: white;
+  z-index: 0;
 }
 
 .artCard img {
@@ -152,7 +152,7 @@ p {
   font-size: 28px;
   color: #7F1637;
   padding-top: 100px;
-  z-index: 5;
+  z-index: 1;
   margin: auto 50px;
   display: block;
   text-align: center;

@@ -127,7 +127,7 @@ display: inline-block;
   display: inline-block;
   float: left;
   width: 50%;
-  height: 3000px;
+  height: 2000px;
 }
 
 .boxing {
